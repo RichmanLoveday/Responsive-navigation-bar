@@ -1,0 +1,129 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 100vh repeat(1, min-content );
+}
+
+header#header {
+    background: url(full-bg-07-1.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.header__nav {
+    height: 10vh;
+    background-color: #ff92058e;
+}
+
+li {
+    list-style: none;
+}
+
+li a:link,
+li a:visited {
+    text-decoration: none;
+    font-size: calc(0.5rem + 1vw);
+    padding: 1rem 2rem;
+    color: white;
+    position: relative;
+}
+
+li a:link::before,
+li a:link::after,
+li a:visited::before,
+li a:visited::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0.25rem;
+    background-color: white;
+    transform: scale(0);
+    transition: transform 0.6s cubic-bezier(1, 0, 0, 1);
+}
+
+li a:link::after,
+li a:visited::after {
+    bottom: 0;
+    height: 0.22rem;
+    transform-origin: right;
+}
+
+li a:link::before,
+li a:visited::before {
+    top: 0;
+    transform-origin: left;
+}
+
+li a:hover::before,
+li a:hover::after,
+li a:hover::before,
+li a:hover::after {
+    transform: scaleX(1);
+}
+
+.header__nav--links {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    margin-left: auto;
+    height: 100%;
+}
+
+
+@media screen and (max-width: 768px) {
+    .header__nav--links {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 100%;
+        background-color: #ff92058e;;
+        flex-direction: column;
+        justify-content: center;
+        clip-path: circle(800px at 90% -10%); /* When you add javascript change 800px to 0px*/
+        transition: all 0.3s ease-in-out;
+        pointer-events: all;
+        z-index: 1;
+    }
+
+    /* Use the Open class to attach in javascript to enable the open and close*/
+    .header__nav--links.open {
+        clip-path: circle(1000px at 90% -10%);
+    }
+
+    .header__nav.open {
+        background-color: none;
+    }
+
+    li {
+        list-style: none;
+        margin-bottom: 50px;
+    }
+
+    .header__nav {
+        position: relative;
+    }
+
+    .line {
+        width: 50px;
+        height: 5px;
+        margin: 10px;
+        background-color: white;
+    }
+    .header__hamburger {
+        position: absolute;
+        right: 0;
+        cursor: pointer;
+        z-index: 2;
+    }
+
+}
