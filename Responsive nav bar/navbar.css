@@ -89,11 +89,18 @@ li a:hover::after {
         background-color: #ff92058e;;
         flex-direction: column;
         justify-content: center;
-        clip-path: circle(800px at 90% -10%); /* When you add javascript change 800px to 0px*/
+     clip-path: circle(100px at 90% -10%); /* When you add javascript change 800px to 0px*/
+    -webkit-clip-path: circle(100px at 90% -10%);
         transition: all 0.3s ease-in-out;
         pointer-events: all;
         z-index: 1;
+
+    
+
+   
+
     }
+
 
     /* Use the Open class to attach in javascript to enable the open and close*/
     .header__nav--links.open {
